@@ -6,11 +6,11 @@ const router = require('express').Router();
 router.get('/productos', async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1; // Asegúrate de convertir a entero
-        const limit = 25;
+        const limit = 35;
         const offset = (page - 1) * limit;
 
         const { rows } = await pool.query(`
-            SELECT p.id, p.nombre, p.lugar, p.imagen AS photo, p.product_url AS urlproducto, h.precio, h.fecha
+            SELECT p.id, p.nombre, p.lugar, p.imagen AS photo, p.product_url AS urlproducto, h.precio, h.fecha, COUNT(h.producto_id) AS historial_count
             FROM productos p
             JOIN (
                 SELECT producto_id, precio, fecha
@@ -21,7 +21,8 @@ router.get('/productos', async (req, res) => {
                     GROUP BY producto_id
                 )
             ) h ON p.id = h.producto_id
-            ORDER BY RANDOM()
+            GROUP BY p.id, h.precio, h.fecha
+            ORDER BY historial_count DESC, RANDOM()
             LIMIT $1 OFFSET $2
         `, [limit, offset]);
 
