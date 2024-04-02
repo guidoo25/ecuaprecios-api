@@ -74,13 +74,13 @@ router.get('/productos/categoria/:categoria', async (req, res) => {
 router.get('/productos/mayor-baja', async (req, res) => {
     try {
         const { rows } = await pool.query(`
-            SELECT p.id, p.nombre, (h1.precio - h2.precio) AS diferencia
+        SELECT p.id, p.nombre, p.imagen AS photo, p.product_url AS urlproducto, h2.precio AS precio_actual, (h2.precio - h1.precio) AS diferencia
             FROM productos p
             JOIN historial_precios h1 ON p.id = h1.producto_id
             JOIN historial_precios h2 ON p.id = h2.producto_id
             WHERE h1.fecha < h2.fecha
-            ORDER BY diferencia ASC
-            LIMIT 3
+            ORDER BY RANDOM()
+            LIMIT 12
         `);
 
         res.json(rows);
