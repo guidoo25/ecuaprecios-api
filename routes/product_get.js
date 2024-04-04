@@ -170,7 +170,7 @@ router.get('/productos/similares/:id', async (req, res) => {
 });
 
 
-router.get('/busqueda', async (req, res) => {
+router.get('/productos/busqueda', async (req, res) => {
     // Obtener el término de búsqueda del query string
     const terminoBusqueda = req.query.q;
 
