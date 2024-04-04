@@ -182,10 +182,19 @@ router.get('/busqueda', async (req, res) => {
         // Realizar la consulta a la base de datos
         // Utiliza ILIKE para búsqueda insensible a mayúsculas y '%term%' para coincidencias parciales
         const { rows } = await pool.query(`
-            SELECT id, nombre, categoria
-            FROM productos
-            WHERE nombre ILIKE $1
-            LIMIT 10;
+            SELECT p.id, p.nombre, p.lugar, p.imagen AS photo, p.product_url AS urlproducto, h.precio, h.fecha
+            FROM productos p
+            JOIN (
+                SELECT producto_id, precio, fecha
+                FROM historial_precios
+                WHERE (producto_id, fecha) IN (
+                    SELECT producto_id, MAX(fecha)
+                    FROM historial_precios
+                    GROUP BY producto_id
+                )
+            ) h ON p.id = h.producto_id
+            WHERE p.nombre ILIKE $1
+            LIMIT 100;
         `, [`%${terminoBusqueda}%`]); // '%' permite coincidencias parciales antes y después del término
 
         res.json(rows);
@@ -194,7 +203,6 @@ router.get('/busqueda', async (req, res) => {
         res.status(500).send('Error interno del servidor');
     }
 });
-
 
 
 
