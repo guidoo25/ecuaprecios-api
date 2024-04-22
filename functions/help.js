@@ -9,4 +9,4 @@ function generateBottomTitles(rows) {
     return titles;
 }
 
-export { generateBottomTitles };
+module.exports = { generateBottomTitles };
