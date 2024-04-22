@@ -1,6 +1,7 @@
 
 const pool = require('../db/db');
 const router = require('express').Router();
+const { generateBottomTitles } = require('../functions/help');
 
 
 router.get('/productos', async (req, res) => {
@@ -124,6 +125,41 @@ router.get('/productos/:id/historial-precios', async (req, res) => {
         res.status(500).send('Error al obtener el historial de precios');
     }
 });
+router.get('/productos/:id/historico-precios', async (req, res) => {
+    const productId = req.params.id;
+
+    try {
+        const { rows } = await pool.query(`
+            SELECT precio, fecha
+            FROM historial_precios
+            WHERE producto_id = $1
+            ORDER BY fecha ASC
+        `, [productId]);
+
+        const data = {
+            spots: rows.map((row, index) => ({
+                x: index, // O alguna otra lógica para determinar el eje x, como el mes de la fecha
+                y: parseFloat(row.precio)
+            })),
+            leftTitle: {
+                0: '0',
+                20: '2K',
+                40: '4K',
+                60: '6K',
+                80: '8K',
+                100: '10K'
+            },
+            bottomTitle: generateBottomTitles(rows)
+        };
+
+        res.json(data);
+    } catch (error) {
+        console.error('Error al obtener el historial de precios:', error);
+        res.status(500).send('Error al obtener el historial de precios');
+    }
+});
+
+
 
 router.get('/productos/similares/:id', async (req, res) => {
     const productId = req.params.id;
