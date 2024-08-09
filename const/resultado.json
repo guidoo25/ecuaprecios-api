@@ -1,0 +1,218 @@
+{
+    "Celulares": {
+        "2024.0": {
+            "Marzo": {
+                "pct_change": 705.1721217225454,
+                "dollar_change": 4890.6295331997435,
+                "imagen": "imagen_celulares_3.0.png",
+                "echo_historico": "dias previos al incremento del iva "
+            },
+            "Abril": {
+                "pct_change": 49.308904798458954,
+                "dollar_change": 2753.4913565220504,
+                "imagen": "https://ibb.co/Wx0Cswx",
+                "echo_historico": "Iva 15%"
+            },
+            "Junio": {
+                "pct_change": 196.5736036748134,
+                "dollar_change": 16389.63456346216,
+                "imagen": "imagen_celulares_6.0.png",
+                "echo_historico": "alza de la gasolina"
+            },
+            "Julio": {
+                "pct_change": -56.928912924432986,
+                "dollar_change": -14076.978785639887,
+                "imagen": "imagen_celulares_7.0.png",
+                "echo_historico": "julio"
+            }
+        }
+    },
+    "aires-acondicionados": {
+        "2024.0": {
+            "3.0": {
+                "pct_change": 48.307194418012166,
+                "dollar_change": 5930.828646934417,
+                "imagen": "imagen_aires_3.0.png",
+                "echo_historico": "Aumento de la demanda en verano."
+            },
+            "4.0": {
+                "pct_change": -5.724194380252612,
+                "dollar_change": -1042.2697985144332,
+                "imagen": "imagen_aires_4.0.png",
+                "echo_historico": "Disminución de ventas por competencia."
+            },
+            "6.0": {
+                "pct_change": 145.5000441091028,
+                "dollar_change": 24976.360709472494,
+                "imagen": "imagen_aires_6.0.png",
+                "echo_historico": "Nuevas estrategias de marketing."
+            },
+            "7.0": {
+                "pct_change": -59.22799965337961,
+                "dollar_change": -24960.005260452384,
+                "imagen": "imagen_aires_7.0.png",
+                "echo_historico": "Retiro de producto defectuoso."
+            }
+        }
+    },
+    "audio": {
+        "2024.0": {
+            "3.0": {
+                "pct_change": 1130.8279156985452,
+                "dollar_change": 4320.238449332494,
+                "imagen": "imagen_audio_3.0.png",
+                "echo_historico": "Promoción de lanzamiento."
+            },
+            "4.0": {
+                "pct_change": 15.660510130052895,
+                "dollar_change": 736.4011180715061,
+                "imagen": "imagen_audio_4.0.png",
+                "echo_historico": "Ajuste de precios por competencia."
+            },
+            "6.0": {
+                "pct_change": 315.2226977459803,
+                "dollar_change": 17143.958999327133,
+                "imagen": "imagen_audio_6.0.png",
+                "echo_historico": "Aumento en la calidad del producto."
+            },
+            "7.0": {
+                "pct_change": -80.22647382321053,
+                "dollar_change": -18117.25628412909,
+                "imagen": "imagen_audio_7.0.png",
+                "echo_historico": "Problemas de logística."
+            }
+        }
+    },
+    "bebes": {
+        "2024.0": {
+            "3.0": {
+                "pct_change": 23.729418033068626,
+                "dollar_change": 184.08333333333326,
+                "imagen": "imagen_bebes_3.0.png",
+                "echo_historico": "Nueva campaña de marketing."
+            },
+            "4.0": {
+                "pct_change": 69.9247896051664,
+                "dollar_change": 671.1684313725492,
+                "imagen": "imagen_bebes_4.0.png",
+                "echo_historico": "Introducción de nuevos productos."
+            }
+        }
+    },
+    "computadoras": {
+        "2024.0": {
+            "3.0": {
+                "pct_change": 547.3178405287499,
+                "dollar_change": 11472.535456939462,
+                "imagen": "imagen_computadoras_3.0.png",
+                "echo_historico": "Aumento en la demanda."
+            },
+            "4.0": {
+                "pct_change": 27.772001152187276,
+                "dollar_change": 3768.292058519466,
+                "imagen": "imagen_computadoras_4.0.png",
+                "echo_historico": "Nueva versión lanzada."
+            },
+            "6.0": {
+                "pct_change": 112.02142708561445,
+                "dollar_change": 19421.115819610517,
+                "imagen": "imagen_computadoras_6.0.png",
+                "echo_historico": "Mejoras en hardware."
+            },
+            "7.0": {
+                "pct_change": -65.65906728592064,
+                "dollar_change": -24135.01314336912,
+                "imagen": "imagen_computadoras_7.0.png",
+                "echo_historico": "Reducción en la demanda."
+            }
+        }
+    },
+    "electrodomesticos": {
+        "2024.0": {
+            "3.0": {
+                "pct_change": 117.21832186035725,
+                "dollar_change": 13440.482871055881,
+                "imagen": "imagen_electrodomesticos_3.0.png",
+                "echo_historico": "Nuevas promociones."
+            },
+            "4.0": {
+                "pct_change": -5.836512320760834,
+                "dollar_change": -1453.6813978628343,
+                "imagen": "imagen_electrodomesticos_4.0.png",
+                "echo_historico": "Ajuste de precios."
+            },
+            "6.0": {
+                "pct_change": -22.142278630136815,
+                "dollar_change": -5193.028111601023,
+                "imagen": "imagen_electrodomesticos_6.0.png",
+                "echo_historico": "Demanda a la baja."
+            },
+            "7.0": {
+                "pct_change": -49.84441247340744,
+                "dollar_change": -9101.574590107171,
+                "imagen": "imagen_electrodomesticos_7.0.png",
+                "echo_historico": "Fallo en el suministro."
+            }
+        }
+    },
+    "hogar": {
+        "2024.0": {
+            "4.0": {
+                "pct_change": -19.41634197758826,
+                "dollar_change": -533.8351967877375,
+                "imagen": "imagen_hogar_4.0.png",
+                "echo_historico": "Ajuste de precios."
+            },
+            "7.0": {
+                "pct_change": -97.79504909723468,
+                "dollar_change": -2166.724223511435,
+                "imagen": "imagen_hogar_7.0.png",
+                "echo_historico": "Caída en la demanda."
+            }
+        }
+    },
+    "relojes-smartwatchs-y-smartbands": {
+        "2024.0": {
+            "3.0": {
+                "pct_change": 3907.394095769525,
+                "dollar_change": 4309.513790650406,
+                "imagen": "imagen_relojes_3.0.png",
+                "echo_historico": "Nueva colección lanzada."
+            },
+            "4.0": {
+                "pct_change": -9.801269629996966,
+                "dollar_change": -433.1970091543435,
+                "imagen": "imagen_relojes_4.0.png",
+                "echo_historico": "Demanda fluctuante."
+            }
+        }
+    },
+    "televisores": {
+        "2024.0": {
+            "3.0": {
+                "pct_change": 35.66491689558005,
+                "dollar_change": 3519.5324017458133,
+                "imagen": "imagen_televisores_3.0.png",
+                "echo_historico": "Aumento de ventas por promociones."
+            },
+            "4.0": {
+                "pct_change": 2.6066892293764576,
+                "dollar_change": 348.9800190358983,
+                "imagen": "imagen_televisores_4.0.png",
+                "echo_historico": "Ajuste de mercado."
+            },
+            "6.0": {
+                "pct_change": 23.263356618171272,
+                "dollar_change": 3195.65110240618,
+                "imagen": "imagen_televisores_6.0.png",
+                "echo_historico": "Nueva tecnología introducida."
+            },
+            "7.0": {
+                "pct_change": -93.08030442276315,
+                "dollar_change": -15760.818366215704,
+                "imagen": "imagen_televisores_7.0.png",
+                "echo_historico": "Problemas de suministro."
+            }
+        }
+    }
+}

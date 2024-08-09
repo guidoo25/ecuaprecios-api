@@ -2,12 +2,14 @@
 const pool = require('../db/db');
 const router = require('express').Router();
 const { generateBottomTitles } = require('../functions/help');
+const fs = require('fs');
+const path = require('path');
 
 
 router.get('/productos', async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1; // Asegúrate de convertir a entero
-        const limit = 35;
+        const limit = 250;
         const offset = (page - 1) * limit;
 
             const { rows } = await pool.query(`
@@ -241,8 +243,26 @@ router.get('/productos/busqueda', async (req, res) => {
 });
 
 
+router.get('/grafica', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'const', 'resultado.json'); 
+    console.log(`Intentando leer el archivo JSON desde: ${filePath}`);
 
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error al leer el archivo JSON:', err);
+            return res.status(500).send('Error interno del servidor al leer el archivo JSON');
+        }
 
+        try {
+            const jsonData = JSON.parse(data);
+            res.json(jsonData);
+        } catch (parseError) {
+            console.error('Error al parsear el archivo JSON:', parseError);
+            console.error('Contenido del archivo JSON:', data);
+            res.status(500).send('Error interno del servidor al parsear el archivo JSON');
+        }
+    });
+});
 
 
 module.exports = {router};
