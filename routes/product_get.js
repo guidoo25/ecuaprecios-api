@@ -46,12 +46,12 @@ router.get('/productos', async (req, res) => {
     res.status(500).send('Error al obtener los productos');
 }
 });
-
 router.get('/productos/categoria/:categoria', async (req, res) => {
     const categoria = req.params.categoria;
 
     try {
-        const { rows } = await pool.query(`
+        // Construcción dinámica de la consulta SQL
+        let query = `
             SELECT p.id, p.nombre, p.lugar, p.imagen AS photo, p.product_url AS urlproducto, h.precio, h.fecha
             FROM productos p
             JOIN (
@@ -63,9 +63,19 @@ router.get('/productos/categoria/:categoria', async (req, res) => {
                     GROUP BY producto_id
                 )
             ) h ON p.id = h.producto_id
-            WHERE p.categoria = $1
-            ORDER BY RANDOM()
-        `, [categoria]);
+        `;
+
+        // Si la categoría no es '0', se añade el filtro por categoría
+        if (categoria !== '0') {
+            query += ` WHERE p.categoria = $1`;
+        }
+
+        query += ` ORDER BY RANDOM()`;
+
+        // Ejecución de la consulta
+        const { rows } = categoria !== '0' 
+            ? await pool.query(query, [categoria]) 
+            : await pool.query(query);
 
         res.json(rows);
     } catch (error) {
@@ -73,6 +83,7 @@ router.get('/productos/categoria/:categoria', async (req, res) => {
         res.status(500).send('Error al obtener los productos por categoría');
     }
 });
+
 router.get('/productos/mayor-baja', async (req, res) => {
     try {
         const { rows } = await pool.query(`
