@@ -243,7 +243,7 @@ router.get('/productos/busqueda', async (req, res) => {
 });
 
 
-router.get('/grafica', (req, res) => {
+router.get('/productos/grafica', (req, res) => {
     const filePath = path.join(__dirname, '..', 'const', 'resultado.json'); 
     console.log(`Intentando leer el archivo JSON desde: ${filePath}`);
 
