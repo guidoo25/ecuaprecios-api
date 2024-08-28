@@ -9,7 +9,7 @@ const path = require('path');
 router.get('/productos', async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1; // Asegúrate de convertir a entero
-        const limit = 250;
+        const limit = 25;
         const offset = (page - 1) * limit;
 
             const { rows } = await pool.query(`
