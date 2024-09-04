@@ -46,6 +46,51 @@ router.get('/productos', async (req, res) => {
     res.status(500).send('Error al obtener los productos');
 }
 });
+router.get('/producto/:id', async (req, res) => {
+    const productId = req.params.id;
+
+    try {
+        // Consulta para obtener los detalles del producto
+        const productQuery = `
+            SELECT p.id, p.nombre, p.lugar, p.imagen AS photo, p.product_url AS urlproducto, h.precio, h.fecha
+            FROM productos p
+            JOIN (
+                SELECT producto_id, precio, fecha
+                FROM historial_precios
+                WHERE (producto_id, fecha) IN (
+                    SELECT producto_id, MAX(fecha)
+                    FROM historial_precios
+                    GROUP BY producto_id
+                )
+            ) h ON p.id = h.producto_id
+            WHERE p.id = $1
+        `;
+        const productRes = await pool.query(productQuery, [productId]);
+
+        // Verifica si el producto existe
+        if (productRes.rows.length === 0) {
+            return res.status(404).json({ message: 'Producto no encontrado' });
+        }
+
+        const product = productRes.rows[0];
+
+        res.json({
+            id: product.id,
+            nombre: product.nombre,
+            lugar: product.lugar,
+            photo: product.photo,
+            urlproducto: product.urlproducto,
+            precio: product.precio,
+            fecha: product.fecha
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener los detalles del producto');
+    }
+});
+
+
+
 router.get('/productos/categoria/:categoria', async (req, res) => {
     const categoria = req.params.categoria;
 
